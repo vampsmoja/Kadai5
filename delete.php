@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
 }
 
 //データベースの接続、PDOオブジェクトの作成、パラメータの指定、第1にデータベースのドライバからホスト名まで、第2にユーザー名、第3にパスワードですが指定してないので未入力
-$pdo = new PDO('mysql:charset=UTF8;dbname=php-kadai;host=localhost', 'kurihara', "");
+$pdo = new PDO('mysql:charset=UTF8;dbname=php-kadai2;host=localhost', 'root', "root");
 
 
 

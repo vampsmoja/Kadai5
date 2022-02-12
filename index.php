@@ -1,8 +1,8 @@
 <?php
 
 //エラー確認用
-///ini_set('display_errors', 1);
-//ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('error_reporting', E_ALL);
 
 
 // 変数の初期化　※nullで値を空にしておき、存在しない変数を読んだり、意図しない挙動を防ぐため
@@ -16,7 +16,7 @@ $res = null;
 //データベースの接続、PDOオブジェクトの作成、パラメータの指定、第1にデータベースのドライバからホスト名まで、第2にユーザー名、第3にパスワードですが指定してないので未入力
 //try{}内でデータベースに接続ができた時の動作、できなかった場合はPDOException(エラーの内容)を変数$eに入れてgetMessageでエラーの内容を取得
 try{   
-    $pdo = new PDO('mysql:charset=UTF8;dbname=php-kadai;host=localhost', 'kurihara', "");
+    $pdo = new PDO('mysql:charset=UTF8;dbname=php-kadai2;host=localhost', 'root', "root");
 } catch (PDOException $e){
     $error_message[] = $e->getMessage();
 }
@@ -42,10 +42,6 @@ if( !empty($_POST['btn_submit'])) {//投稿した内容(変数)が空でなけ�
 
         $res = $stmt->execute();//DBへの登録の実行、bindParamなのでexecuteの時点でbindが実行。この処理を変数$resに入れる。
 
-        //もし上の処理が失敗すれば$error_messageに「書き込みに失敗しました。」が入ります。
-        if( $res ) {
-            $error_message[] = '書き込みに失敗しました。';
-        }
 
         $stmt = null;//プリペアドステートメントの終了。
 

@@ -22,7 +22,7 @@ if(isset($_GET['id'])){
 //データベースの接続、PDOオブジェクトの作成、パラメータの指定、第1にデータベースのドライバからホスト名まで、第2にユーザー名、第3にパスワードですが指定してないので未入力
 //try{}内でデータベースに接続ができた時の動作、できなかった場合はPDOException(エラーの内容)を変数$eに入れてgetMessageでエラーの内容を取得
 try{   
-    $pdo = new PDO('mysql:charset=UTF8;dbname=php-kadai;host=localhost', 'kurihara', "");
+    $pdo = new PDO('mysql:charset=UTF8;dbname=php-kadai2;host=localhost', 'root', "root");
 } catch (PDOException $e){
     $error_message[] = $e->getMessage();
 }
